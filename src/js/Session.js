@@ -21,6 +21,10 @@ export class Session {
     loadingService.toggleSpinner(false);
   }
 
+  mergeLocalStorage() {
+    localStorageService.merge("currentUser", this.user);
+  }
+
   async _getIPs() {
     const pub = await fetch("https://api.ipify.org?format=json").then((r) =>
       r.json(),
